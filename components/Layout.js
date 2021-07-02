@@ -1,5 +1,6 @@
 import NavBar from './Navbar'
 import Head from 'next/head'
+import Script from 'next/script'
 
 const layout = ({ children }) => {
   return (
@@ -13,11 +14,12 @@ const layout = ({ children }) => {
           rel='stylesheet'
           href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'
         />
-        {/* <link rel='stylesheet' href='/style.css'></link> */}
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
+        <link rel='stylesheet' href='/style.css'></link>
       </Head>
       <NavBar />
       {children}
-      {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> */}
+      <Script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></Script>
     </>
   )
 }

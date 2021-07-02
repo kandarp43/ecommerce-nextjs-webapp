@@ -1,43 +1,40 @@
 import Link from 'next/link'
+import Image from 'next/image'
+
 import baseUrl from '../helpers/baseUrl'
 
-const Home = ({products})=>{
-
-
- const productList = products.map(product=>{
-   return(
-    <div className="card pcard" key={product._id}>
-    <div className="card-image">
-      <img src={product.mediaUrl} />
-      <span className="card-title">{product.name}</span>
-    </div>
-    <div className="card-content">
-      <p> ₹  {product.price}</p>
-    </div>
-    <div className="card-action">
-      <Link href={'/product/[id]'} as={`/product/${product._id}`}><a>View Product</a></Link>
-    </div>
-  </div>
-   )
- })
+const Home = ({ products }) => {
+  const productList = products.map((product) => {
+    return (
+      <div className='card pcard' key={product._id}>
+        <div className='card-image'>
+          <Image src={product.mediaUrl} alt='media' />
+          <span className='card-title'>{product.name}</span>
+        </div>
+        <div className='card-content'>
+          <p> ₹ {product.price}</p>
+        </div>
+        <div className='card-action'>
+          <Link href={'/product/[id]'} as={`/product/${product._id}`}>
+            <a>View Product</a>
+          </Link>
+        </div>
+      </div>
+    )
+  })
 
   // console.log(products)
-  return(
-    <div className="rootcard">
-      {productList}
-    </div>
-  )
+  return <div className='rootcard'>{productList}</div>
 }
 
-
-export async function getStaticProps(){
- const res =  await fetch(`${baseUrl}/api/products`)
- const data = await res.json()
- return {
-   props:{
-     products:data
-   }
- }
+export async function getStaticProps() {
+  const res = await fetch(`${baseUrl}/api/products`)
+  const data = await res.json()
+  return {
+    props: {
+      products: data,
+    },
+  }
 }
 
 // export async function getServerSideProps(){
@@ -49,10 +46,5 @@ export async function getStaticProps(){
 //    }
 //  }
 // }
-
-
-
-
-
 
 export default Home
