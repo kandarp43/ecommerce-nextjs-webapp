@@ -8,7 +8,7 @@ const Account = ({ orders }) => {
   const user = cookie.user ? JSON.parse(cookie.user) : ''
 
   useEffect(() => {
-    M.Collapsible.init(orderCard.current)
+    // M.Collapsible.init(orderCard.current)
   }, [])
   const OrderHistory = () => {
     return (
