@@ -12,7 +12,7 @@ function Authenticated(icomponent){
               return icomponent(req,res)
         }catch(err){
             console.log(err)
-            return res.status(401).json({error:"you must logged in"})
+            return res.status(401).json({error:"you must be logged in"})
         }
        
     }
