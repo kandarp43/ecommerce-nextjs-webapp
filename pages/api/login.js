@@ -5,11 +5,11 @@ import jwt from 'jsonwebtoken'
 
 initDB()
 
-export const login = async (req, res) => {
+export default async function login(req, res) {
   const { email, password } = req.body
   try {
     if (!email || !password) {
-      return res.status(422).json({ error: 'please ass all the fields' })
+      return res.status(422).json({ error: 'please pass all the fields' })
     }
     const user = await User.findOne({ email })
     if (!user) {

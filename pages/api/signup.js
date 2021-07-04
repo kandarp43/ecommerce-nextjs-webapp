@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs'
 import Cart from '../../models/Cart'
 initDB()
 
-export const signup = async (req, res) => {
+export default async function signup(req, res) {
   const { name, email, password } = req.body
   try {
     if (!name || !email || !password) {

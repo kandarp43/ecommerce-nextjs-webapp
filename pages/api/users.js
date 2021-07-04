@@ -1,7 +1,7 @@
 import User from '../../models/User'
 import Authenticated from '../../helpers/Authenticated'
 
-export const users = async (req, res) => {
+export default async function users(req, res) {
   switch (req.method) {
     case 'GET':
       await fetchUsers(req, res)

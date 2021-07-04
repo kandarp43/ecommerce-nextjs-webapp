@@ -8,7 +8,7 @@ import initDb from '../../helpers/initDB'
 initDb()
 
 const stripe = Stripe(process.env.STRIPE_SECRET)
-export const payment = async (req, res) => {
+export default async function payment(req, res) {
   const { paymentInfo } = req.body
   const { authorization } = req.headers
   if (!authorization) {

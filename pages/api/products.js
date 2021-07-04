@@ -3,7 +3,7 @@ import Product from '../../models/Product'
 
 initDB()
 
-export const products = async (req, res) => {
+export default async function products(req, res) {
   switch (req.method) {
     case 'GET':
       await getallProducts(req, res)

@@ -5,7 +5,7 @@ import initDb from '../../helpers/initDB'
 
 initDb()
 
-export const cart = async (req, res) => {
+export default async function cart(req, res) {
   switch (req.method) {
     case 'GET':
       await fetchUserCart(req, res)
